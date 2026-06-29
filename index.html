@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>凱寶寶保障規劃建議書</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/tabler-icons.min.css">
+<style>
+:root{
+  --bg-primary:#ffffff;--bg-secondary:#f7f6f3;--bg-cream:#ECE7D8;
+  --text-primary:#1f1e1c;--text-secondary:#56544f;--text-tertiary:#8a8780;
+  --border-secondary:#cbc9c1;--border-tertiary:#e6e4dd;
+  --radius-md:8px;--radius-lg:12px;
+  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-sans);background:var(--bg-primary);color:var(--text-primary);-webkit-font-smoothing:antialiased;}
+.wrap{max-width:820px;margin:0 auto;padding:2rem 1.5rem 3rem;font-size:15px;}
+@media(min-width:600px){.wrap{font-size:16px;}}
+@media(min-width:1024px){.wrap{font-size:17px;}}
+
+.header{margin-bottom:1.25rem;}
+.header-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+.doc-label{font-size:0.71em;color:var(--text-tertiary);margin-bottom:4px;}
+.client-name{font-size:1.47em;font-weight:500;color:var(--text-primary);}
+.advisor{font-size:0.76em;color:var(--text-secondary);margin-top:5px;line-height:1.6;}
+.hdate{font-size:0.76em;color:var(--text-tertiary);margin-top:4px;text-align:right;white-space:nowrap;}
+.header-divider{margin-top:12px;height:1px;background:var(--border-tertiary);}
+
+.premium-section{margin:1.25rem 0 1.75rem;border:1px solid var(--border-tertiary);border-radius:var(--radius-lg);padding:14px 16px;background:var(--bg-cream);}
+.premium-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;gap:12px;}
+.premium-title{font-size:0.71em;font-weight:500;letter-spacing:0.06em;color:#6b6759;}
+.premium-total-inline{display:flex;align-items:baseline;gap:6px;white-space:nowrap;}
+.premium-total-label{font-size:0.76em;color:#56544f;}
+.premium-total-amt{font-size:1.06em;font-weight:500;color:var(--text-primary);}
+.pgroup{margin-bottom:10px;}
+.pgroup:last-of-type{margin-bottom:0;}
+.pgroup-label{font-size:0.65em;font-weight:500;letter-spacing:0.05em;padding:2px 8px;border-radius:4px;display:inline-block;margin-bottom:5px;}
+.pg-blue .pgroup-label{background:rgba(55,138,221,0.18);color:#185FA5;}
+.pg-purple .pgroup-label{background:rgba(127,119,221,0.18);color:#3C3489;}
+.pg-pink .pgroup-label{background:rgba(212,83,126,0.18);color:#993556;}
+.pg-green .pgroup-label{background:rgba(99,153,34,0.18);color:#3B6D11;}
+.premium-item{border-radius:7px;margin-bottom:4px;overflow:hidden;background:var(--bg-primary);border:1px solid var(--border-tertiary);}
+.premium-item summary{display:flex;align-items:center;gap:8px;padding:8px 12px;cursor:pointer;list-style:none;}
+.premium-item summary::-webkit-details-marker{display:none;}
+.premium-name{font-size:0.78em;color:var(--text-primary);flex:1;line-height:1.45;}
+.premium-tag{font-size:0.65em;color:var(--text-tertiary);margin-left:6px;}
+.premium-amt{font-size:0.78em;font-weight:500;color:var(--text-primary);white-space:nowrap;}
+.chev{font-size:0.8em;color:var(--text-tertiary);transition:transform 0.2s;display:flex;}
+.premium-item[open] .chev{transform:rotate(180deg);}
+.premium-detail{padding:8px 12px 10px 12px;display:flex;flex-direction:column;gap:4px;border-top:1px solid var(--border-tertiary);margin-top:2px;}
+.d-row{display:flex;align-items:baseline;gap:8px;}
+.d-label{font-size:0.72em;color:var(--text-tertiary);white-space:nowrap;min-width:6em;}
+.d-val{font-size:0.74em;color:var(--text-secondary);line-height:1.5;}
+.premium-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:0.65em;color:#6b6759;}
+.legend-dot{width:9px;height:9px;border-radius:2px;}
+.ld-purple{background:rgba(127,119,221,0.5);}
+.ld-pink{background:rgba(212,83,126,0.5);}
+.ld-green{background:rgba(99,153,34,0.5);}
+.ld-blue{background:rgba(55,138,221,0.5);}
+.premium-sub{font-size:0.65em;color:#6b6759;margin-top:8px;line-height:1.6;}
+
+.timeline{position:relative;padding-left:30px;}
+.timeline::before{content:'';position:absolute;left:10px;top:6px;bottom:6px;width:1px;background:var(--border-secondary);}
+.section{margin-bottom:2.2rem;}
+.section:last-child{margin-bottom:0;}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;position:relative;}
+.node{position:absolute;left:-30px;width:20px;height:20px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;background:var(--bg-primary);}
+.node i{font-size:10px;}
+.branch-wrap{position:relative;padding-left:22px;display:flex;flex-direction:column;gap:10px;}
+.branch-wrap::before{content:'';position:absolute;left:0;top:12px;bottom:12px;width:1px;background:var(--border-tertiary);}
+.branch-card{position:relative;}
+.branch-card::before{content:'';position:absolute;left:-22px;top:50%;width:18px;height:1px;background:var(--border-tertiary);}
+.product-card{border:1px solid var(--border-tertiary);border-radius:var(--radius-lg);padding:14px 16px;background:var(--bg-primary);}
+.product-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px;}
+.product-name{font-size:0.94em;font-weight:500;color:var(--text-primary);}
+.product-badge{font-size:0.71em;padding:3px 9px;border-radius:4px;white-space:nowrap;flex-shrink:0;}
+.product-headline{font-size:0.82em;color:var(--text-secondary);margin-bottom:10px;line-height:1.6;}
+.benefits{display:flex;flex-direction:column;gap:6px;}
+.benefit-row{display:flex;align-items:baseline;gap:10px;}
+.benefit-label{font-size:0.76em;color:var(--text-tertiary);white-space:nowrap;min-width:6.5em;}
+.benefit-val{font-size:0.82em;color:var(--text-primary);line-height:1.55;}
+.hl{font-weight:500;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:2px;color:var(--text-primary);}
+.sec-before .node{border-color:#7F77DD;color:#7F77DD;}
+.sec-before .phase-tag{border-color:#CECBF6;color:#3C3489;background:#EEEDFE;}
+.sec-before .product-badge{background:#EEEDFE;color:#3C3489;}
+.sec-mid .node{border-color:#E24B4A;color:#E24B4A;}
+.sec-mid .phase-tag{border-color:#F7C1C1;color:#A32D2D;background:#FCEBEB;}
+.sec-mid .product-badge{background:#FCEBEB;color:#A32D2D;}
+.sec-acc .node{border-color:#639922;color:#639922;}
+.sec-acc .phase-tag{border-color:#C0DD97;color:#3B6D11;background:#EAF3DE;}
+.sec-acc .product-badge{background:#EAF3DE;color:#3B6D11;}
+.sec-life .node{border-color:#378ADD;color:#378ADD;}
+.sec-life .phase-tag{border-color:#B5D4F4;color:#185FA5;background:#E6F1FB;}
+.sec-life .product-badge{background:#E6F1FB;color:#185FA5;}
+.phase-tag{font-size:0.71em;font-weight:500;letter-spacing:0.06em;padding:4px 10px;border-radius:4px;border:1px solid;white-space:nowrap;}
+.phase-title{font-size:0.76em;color:var(--text-tertiary);line-height:1.5;}
+
+.summary-section{margin-top:1.75rem;border:1px solid var(--border-secondary);border-radius:var(--radius-lg);padding:16px 18px;background:var(--bg-cream);}
+.summary-title{font-size:0.88em;font-weight:500;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:7px;}
+.summary-title i{color:var(--text-secondary);}
+.summary-list{display:flex;flex-direction:column;gap:8px;}
+.summary-item{display:flex;align-items:baseline;gap:10px;padding:7px 12px;border-radius:8px;background:var(--bg-primary);border:1px solid var(--border-tertiary);}
+.summary-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;position:relative;top:1px;}
+.summary-text{font-size:0.85em;color:var(--text-secondary);flex:1;line-height:1.5;}
+.summary-amt{font-size:0.92em;font-weight:500;color:var(--text-primary);white-space:nowrap;}
+
+.print-bar{display:flex;justify-content:flex-end;margin-top:1.5rem;}
+.print-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;font-size:0.82em;border:1px solid var(--border-secondary);border-radius:var(--radius-md);background:transparent;color:var(--text-primary);cursor:pointer;}
+.print-btn:hover{background:var(--bg-secondary);}
+.footer{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border-tertiary);}
+.footer-note{font-size:0.71em;color:var(--text-tertiary);line-height:1.7;}
+
+@media(max-width:560px){
+  .wrap{padding:1.4rem 1rem 2.4rem;}
+  .header-top,.premium-header{display:block;}
+  .hdate{margin-top:8px;text-align:left;}
+  .premium-total-inline{margin-top:6px;}
+  .product-top{display:block;}
+  .product-badge{display:inline-block;margin-top:6px;}
+  .benefit-row,.d-row{display:block;}
+  .benefit-label,.d-label{display:block;margin-bottom:2px;min-width:0;}
+  .summary-item{align-items:flex-start;}
+}
+
+@media print{
+  @page{size:A4;margin:16mm 14mm;}
+  body{background:#fff;}
+  .wrap{max-width:none;font-size:11pt;padding:0;}
+  .print-bar{display:none;}
+  .premium-detail{display:flex !important;}
+  .product-card,.section,.premium-section,.summary-section{break-inside:avoid;}
+  *{print-color-adjust:exact;-webkit-print-color-adjust:exact;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="doc-label">保障規劃建議書</div>
+        <div class="client-name">凱○寶 小姐</div>
+        <div class="advisor">中銘通訊處｜主被保險人 0 歲女寶寶｜要保人 爸爸 30 歲</div>
+      </div>
+      <div class="hdate">民國115.06.29</div>
+    </div>
+    <div class="header-divider"></div>
+  </div>
+
+  <div class="premium-section">
+    <div class="premium-header">
+      <div class="premium-title">年繳保費（點擊展開理賠內容）</div>
+      <div class="premium-total-inline">
+        <span class="premium-total-label">年繳合計</span>
+        <span class="premium-total-amt">NT$ 25,237</span>
+      </div>
+    </div>
+
+    <div class="pgroup pg-blue">
+      <span class="pgroup-label">壽險（主約）／豁免</span>
+      <details class="premium-item">
+        <summary><span class="premium-name">XWS5 新平準終身壽險<span class="premium-tag">主約 · 20年</span></span><span class="premium-amt">NT$ 1,980</span><span class="chev"><i class="ti ti-chevron-down"></i></span></summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">保額</span><span class="d-val">100,000 元</span></div>
+          <div class="d-row"><span class="d-label">老年住院提前</span><span class="d-val">300 元／日（69 歲起）</span></div>
+          <div class="d-row"><span class="d-label">失能豁免</span><span class="d-val">二至六級失能豁免本契約續期保費</span></div>
+        </div>
+      </details>
+      <details class="premium-item">
+        <summary><span class="premium-name">WPA 親子型保險費豁免<span class="premium-tag">附約 · 20年</span></span><span class="premium-amt">NT$ 726</span><span class="chev"><i class="ti ti-chevron-down"></i></span></summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">保障對象</span><span class="d-val">要保人爸爸</span></div>
+          <div class="d-row"><span class="d-label">豁免條件</span><span class="d-val">身故或符合條款所列失能程度</span></div>
+          <div class="d-row"><span class="d-label">豁免範圍</span><span class="d-val">主約及附加於主約之其他附約續期保費</span></div>
+        </div>
+      </details>
+    </div>
+
+    <div class="pgroup pg-purple">
+      <span class="pgroup-label">重大傷病／癌症</span>
+      <details class="premium-item">
+        <summary><span class="premium-name">SDL 溢卡安心重大傷病一年定期<span class="premium-tag">附約</span></span><span class="premium-amt">NT$ 230</span><span class="chev"><i class="ti ti-chevron-down"></i></span></summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">重大傷病</span><span class="d-val">第 1 年 50,000／第 2 年起最高 500,000 元</span></div>
+          <div class="d-row"><span class="d-label">特定重大傷病</span><span class="d-val">100,000 元</span></div>
+          <div class="d-row"><span class="d-label">特定重大疾病</span><span class="d-val">500,000 元</span></div>
+          <div class="d-row"><span class="d-label">特定傷病</span><span class="d-val">500,000 元</span></div>
+        </div>
+      </details>
+      <details class="premium-item">
+        <summary><span class="premium-name">PCC5 溢起防癌終身健康<span class="premium-tag">附約 · 至95歲</span></span><span class="premium-amt">NT$ 1,656</span><span class="chev"><i class="ti ti-chevron-down"></i></span></summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">罹癌一次金</span><span class="d-val">第 1-20 年度 50,000 元，第 21 年度起 75,000 元</span></div>
+          <div class="d-row"><span class="d-label">癌症住院</span><span class="d-val">第 1-90 日 1,200 元／日，第 91 日起 1,800 元／日</span></div>
+          <div class="d-row"><span class="d-label">癌症手術</span><span class="d-val">15,000 元／次</span></div>
+          <div class="d-row"><span class="d-label">放化療</span><span class="d-val">各 1,000 元／日</span></div>
+        </div>
+      </details>
+    </div>
+
+    <div class="pgroup pg-pink">
+      <span class="pgroup-label">住院醫療</span>
+      <details class="premium-item">
+        <summary><span class="premium-name">HSV2 佳實在一年期住院醫療<span class="premium-tag">附約 · 實支/日額</span></span><span class="premium-amt">NT$ 4,810</span><span class="chev"><i class="ti ti-chevron-down"></i></span></summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">每日病房</span><span class="d-val">實支 2,000 元／日，加護或燒燙傷中心 4,000 元／日</span></div>
+          <div class="d-row"><span class="d-label">住院醫療</span><span class="d-val">200,000 元／次，每次住院總限額 300,000 元</span></div>
+          <div class="d-row"><span class="d-label">住院手術</span><span class="d-val">60,000 元／次</span></div>
+          <div class="d-row"><span class="d-label">門診手術</span><span class="d-val">20,000 元／次，年度最高 6 次</span></div>
+        </div>
+      </details>
+      <details class="premium-item">
+        <summary><span class="premium-name">HSY2 全鑫一年期住院醫療<span class="premium-tag">附約 · 實支補強</span></span><span class="premium-amt">NT$ 1,590</span><span class="chev"><i class="ti ti-chevron-down"></i></span></summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">病房費用</span><span class="d-val">限額 3,000 元／日，自負額 2,000 元／日</span></div>
+          <div class="d-row"><span class="d-label">住院醫療手術</span><span class="d-val">限額 300,000 元，自負額 200,000 元</span></div>
+          <div class="d-row"><span class="d-label">門診手術</span><span class="d-val">限額 25,000 元，自負額 20,000 元</span></div>
+          <div class="d-row"><span class="d-label">年度總限額</span><span class="d-val">500,000 元</span></div>
+        </div>
+      </details>
+      <details class="premium-item">
+        <summary><span class="premium-name">HKR5 日安心住院醫療定額<span class="premium-tag">附約 · 至90歲</span></span><span class="premium-amt">NT$ 6,770</span><span class="chev"><i class="ti ti-chevron-down"></i></span></summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">住院日額</span><span class="d-val">第 1-30 日 1,000 元／日，第 31-365 日 2,000 元／日</span></div>
+          <div class="d-row"><span class="d-label">看護/療養</span><span class="d-val">住院看護 500 元／日，出院療養 500 元／日</span></div>
+          <div class="d-row"><span class="d-label">加護/燒燙傷</span><span class="d-val">2,000 元／日，燒燙傷中心 3,000 元／日</span></div>
+          <div class="d-row"><span class="d-label">住院手術</span><span class="d-val">手術 30,000 ＋ 看護 5,000 元 × 給付比率</span></div>
+        </div>
+      </details>
+      <details class="premium-item">
+        <summary><span class="premium-name">SJR1 增守護健康<span class="premium-tag">附約 · 手術</span></span><span class="premium-amt">NT$ 1,760</span><span class="chev"><i class="ti ti-chevron-down"></i></span></summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">手術醫療</span><span class="d-val">1,000 元 × 手術項目給付倍數</span></div>
+          <div class="d-row"><span class="d-label">特定處置</span><span class="d-val">1,000 元 × 特定處置項目給付倍數</span></div>
+          <div class="d-row"><span class="d-label">給付上限</span><span class="d-val">1,300,000 元</span></div>
+        </div>
+      </details>
+    </div>
+
+    <div class="pgroup pg-green">
+      <span class="pgroup-label">意外</span>
+      <details class="premium-item">
+        <summary><span class="premium-name">ADG 享安寶意外傷害暨兒童傷害失能<span class="premium-tag">附約 · 意外身故/失能</span></span><span class="premium-amt">NT$ 320</span><span class="chev"><i class="ti ti-chevron-down"></i></span></summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">意外身故</span><span class="d-val">一般 100 萬，大眾運輸 200 萬</span></div>
+          <div class="d-row"><span class="d-label">意外失能</span><span class="d-val">100 萬 × 失能給付比例</span></div>
+          <div class="d-row"><span class="d-label">重大燒燙傷</span><span class="d-val">400,000 或 100,000 元</span></div>
+        </div>
+      </details>
+      <details class="premium-item">
+        <summary><span class="premium-name">ADM 安鑫護意外傷害住院醫療<span class="premium-tag">附約 · 意外住院</span></span><span class="premium-amt">NT$ 1,060</span><span class="chev"><i class="ti ti-chevron-down"></i></span></summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">意外住院</span><span class="d-val">2,000 元／日，最高 90 日</span></div>
+          <div class="d-row"><span class="d-label">骨折未住院</span><span class="d-val">1,000 元／日，依骨折別日數</span></div>
+          <div class="d-row"><span class="d-label">門診手術</span><span class="d-val">2,000 元／次</span></div>
+        </div>
+      </details>
+      <details class="premium-item">
+        <summary><span class="premium-name">TMR 享安寶意外傷害醫療<span class="premium-tag">附加條款 · 意外實支</span></span><span class="premium-amt">NT$ 1,935</span><span class="chev"><i class="ti ti-chevron-down"></i></span></summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">意外醫療</span><span class="d-val">限額 100,000 元，加護或燒燙傷中心提高為 1.5 倍</span></div>
+          <div class="d-row"><span class="d-label">脫臼復位</span><span class="d-val">髖關節 45,000 元，肩/膝/踝/足 30,000 元</span></div>
+        </div>
+      </details>
+      <details class="premium-item">
+        <summary><span class="premium-name">ADH 骨力勇意外骨折傷害<span class="premium-tag">附約 · 骨折</span></span><span class="premium-amt">NT$ 2,400</span><span class="chev"><i class="ti ti-chevron-down"></i></span></summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">骨折保險金</span><span class="d-val">50 萬 × 完全骨折給付比例</span></div>
+          <div class="d-row"><span class="d-label">骨折關懷</span><span class="d-val">10,000 元 × 完全骨折給付比例</span></div>
+          <div class="d-row"><span class="d-label">重大燒燙傷</span><span class="d-val">125,000 元</span></div>
+        </div>
+      </details>
+    </div>
+
+    <div class="premium-legend">
+      <div class="legend-item"><span class="legend-dot ld-purple"></span>重大傷病／疾病</div>
+      <div class="legend-item"><span class="legend-dot ld-pink"></span>住院醫療</div>
+      <div class="legend-item"><span class="legend-dot ld-green"></span>意外</div>
+      <div class="legend-item"><span class="legend-dot ld-blue"></span>壽險／豁免</div>
+    </div>
+    <div class="premium-sub">首期繳費方式：一般信用卡件。月繳首期需繳 2 個月，建議書列示月繳首期 4,440 元。本頁為建議書內容整理，實際費率依核保與保單條款為準。</div>
+  </div>
+
+  <div class="timeline">
+    <div class="section sec-before">
+      <div class="section-header">
+        <div class="node"><i class="ti ti-coin"></i></div>
+        <span class="phase-tag">醫療前（一次金）</span>
+        <span class="phase-title">確診即給付，不限用途</span>
+      </div>
+      <div class="branch-wrap">
+        <div class="branch-card">
+          <div class="product-card">
+            <div class="product-top"><div class="product-name">SDL 溢卡安心重大傷病附約</div><div class="product-badge">重大傷病</div></div>
+            <div class="product-headline">保額 50 萬，作為重大傷病發生時的第一筆彈性資金。</div>
+            <div class="benefits">
+              <div class="benefit-row"><span class="benefit-label">重大傷病</span><span class="benefit-val">第 1 年 <span class="hl">50,000 元</span>，第 2 年起除慢性精神病外 <span class="hl">500,000 元</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">特定重大疾病</span><span class="benefit-val"><span class="hl">500,000 元</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">特定傷病</span><span class="benefit-val"><span class="hl">500,000 元</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">特定重大傷病</span><span class="benefit-val"><span class="hl">100,000 元</span></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="branch-card">
+          <div class="product-card">
+            <div class="product-top"><div class="product-name">PCC5 溢起防癌終身健康附約</div><div class="product-badge">癌症</div></div>
+            <div class="product-headline">癌症一次金搭配住院、手術、門診與放化療日額。</div>
+            <div class="benefits">
+              <div class="benefit-row"><span class="benefit-label">罹癌一次金</span><span class="benefit-val">第 1-20 年度 <span class="hl">50,000 元</span>，第 21 年度起 <span class="hl">75,000 元</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">癌症住院</span><span class="benefit-val">第 1-90 日 <span class="hl">1,200 元／日</span>，第 91 日起 <span class="hl">1,800 元／日</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">癌症手術</span><span class="benefit-val"><span class="hl">15,000 元／次</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">放化療</span><span class="benefit-val">放射線／化學治療各 <span class="hl">1,000 元／日</span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section sec-mid">
+      <div class="section-header">
+        <div class="node"><i class="ti ti-building-hospital"></i></div>
+        <span class="phase-tag">醫療中</span>
+        <span class="phase-title">醫療實支補貼健保不賠之收據、醫療定額補貼住院期間日常生活成本</span>
+      </div>
+      <div class="branch-wrap">
+        <div class="branch-card">
+          <div class="product-card">
+            <div class="product-top"><div class="product-name">HSV2 佳實在一年期住院醫療附約</div><div class="product-badge">醫療實支</div></div>
+            <div class="product-headline">實支實付與日額二擇一，補病房、住院醫療、住院手術與門診手術。</div>
+            <div class="benefits">
+              <div class="benefit-row"><span class="benefit-label">① 每日病房</span><span class="benefit-val">實支 <span class="hl">2,000 元／日</span>，加護／燒燙傷中心 <span class="hl">4,000 元／日</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">② 住院醫療</span><span class="benefit-val">實支上限 <span class="hl">200,000 元／次</span>，每次住院總限額 <span class="hl">300,000 元</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">③ 住院手術</span><span class="benefit-val">實支上限 <span class="hl">60,000 元／次</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">④ 門診手術</span><span class="benefit-val">實支上限 <span class="hl">20,000 元／次</span>，年度最高 6 次</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="branch-card">
+          <div class="product-card">
+            <div class="product-top"><div class="product-name">HSY2 全鑫一年期住院醫療附約</div><div class="product-badge">實支補強</div></div>
+            <div class="product-headline">自負額型實支，作為較高住院醫療費用時的補強層。</div>
+            <div class="benefits">
+              <div class="benefit-row"><span class="benefit-label">病房費用</span><span class="benefit-val">限額 <span class="hl">3,000 元／日</span>，自負額 <span class="hl">2,000 元／日</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">住院醫療手術</span><span class="benefit-val">限額 <span class="hl">300,000 元</span>，自負額 <span class="hl">200,000 元</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">門診手術</span><span class="benefit-val">限額 <span class="hl">25,000 元</span>，自負額 <span class="hl">20,000 元</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">年度總限額</span><span class="benefit-val"><span class="hl">500,000 元</span></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="branch-card">
+          <div class="product-card">
+            <div class="product-top"><div class="product-name">HKR5 日安心住院醫療定額附約</div><div class="product-badge">醫療定額</div></div>
+            <div class="product-headline">住院期間日額疊加給付，另含手術、看護、療養與加護病房。</div>
+            <div class="benefits">
+              <div class="benefit-row"><span class="benefit-label">住院日額</span><span class="benefit-val">第 1-30 日 <span class="hl">1,000 元／日</span>，第 31-365 日 <span class="hl">2,000 元／日</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">看護/療養</span><span class="benefit-val">住院看護 <span class="hl">500 元／日</span>，出院療養 <span class="hl">500 元／日</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">加護/燒燙傷</span><span class="benefit-val">加護 <span class="hl">2,000 元／日</span>，燒燙傷中心 <span class="hl">3,000 元／日</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">住院手術</span><span class="benefit-val">手術 <span class="hl">30,000</span>＋看護 <span class="hl">5,000</span>（元）× 同一手術比率</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="branch-card">
+          <div class="product-card">
+            <div class="product-top"><div class="product-name">SJR1 增守護健康附約</div><div class="product-badge">手術／處置</div></div>
+            <div class="product-headline">依手術或特定處置倍數給付，補充手術相關支出。</div>
+            <div class="benefits">
+              <div class="benefit-row"><span class="benefit-label">手術醫療</span><span class="benefit-val"><span class="hl">1,000 元</span> × 手術項目給付倍數</span></div>
+              <div class="benefit-row"><span class="benefit-label">特定處置</span><span class="benefit-val"><span class="hl">1,000 元</span> × 特定處置給付倍數</span></div>
+              <div class="benefit-row"><span class="benefit-label">給付上限</span><span class="benefit-val">最高 <span class="hl">1,300,000 元</span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section sec-acc">
+      <div class="section-header">
+        <div class="node"><i class="ti ti-bolt"></i></div>
+        <span class="phase-tag">意外險</span>
+        <span class="phase-title">突發事故，身故失能、住院日額、醫療實支與骨折處置分層處理</span>
+      </div>
+      <div class="branch-wrap">
+        <div class="branch-card">
+          <div class="product-card">
+            <div class="product-top"><div class="product-name">ADG 享安寶意外傷害暨兒童傷害失能附約</div><div class="product-badge">意外身故／失能</div></div>
+            <div class="product-headline">一般意外與交通等事故失能保障，另含重大燒燙傷。</div>
+            <div class="benefits">
+              <div class="benefit-row"><span class="benefit-label">意外身故</span><span class="benefit-val">一般 <span class="hl">100 萬</span>，大眾運輸 <span class="hl">200 萬</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">意外失能</span><span class="benefit-val"><span class="hl">100 萬</span> × 失能給付比例</span></div>
+              <div class="benefit-row"><span class="benefit-label">重大燒燙傷</span><span class="benefit-val"><span class="hl">400,000 元</span>或<span class="hl">100,000 元</span></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="branch-card">
+          <div class="product-card">
+            <div class="product-top"><div class="product-name">ADM 安鑫護意外傷害住院醫療附約</div><div class="product-badge">意外住院</div></div>
+            <div class="product-headline">意外住院日額，未住院骨折也有日額型關懷給付。</div>
+            <div class="benefits">
+              <div class="benefit-row"><span class="benefit-label">意外住院</span><span class="benefit-val"><span class="hl">2,000 元／日</span>，最高 90 日</span></div>
+              <div class="benefit-row"><span class="benefit-label">骨折未住院</span><span class="benefit-val"><span class="hl">1,000 元／日</span> × 骨折別日數</span></div>
+              <div class="benefit-row"><span class="benefit-label">門診手術</span><span class="benefit-val"><span class="hl">2,000 元／次</span></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="branch-card">
+          <div class="product-card">
+            <div class="product-top"><div class="product-name">TMR 享安寶意外傷害醫療附加條款</div><div class="product-badge">意外實支</div></div>
+            <div class="product-headline">意外就醫實支實付，加護或燒燙傷中心住院時限額提高。</div>
+            <div class="benefits">
+              <div class="benefit-row"><span class="benefit-label">意外醫療</span><span class="benefit-val">限額 <span class="hl">100,000 元</span>，加護或燒燙傷中心提高為 <span class="hl">1.5 倍</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">脫臼復位</span><span class="benefit-val">髖關節 <span class="hl">45,000 元</span>，肩/膝/踝/足 <span class="hl">30,000 元</span></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="branch-card">
+          <div class="product-card">
+            <div class="product-top"><div class="product-name">ADH 骨力勇意外骨折傷害附約</div><div class="product-badge">骨折／燒燙傷</div></div>
+            <div class="product-headline">專門補強骨折、脫臼、創傷縫合與重大燒燙傷。</div>
+            <div class="benefits">
+              <div class="benefit-row"><span class="benefit-label">骨折保險金</span><span class="benefit-val"><span class="hl">50 萬</span> × 完全骨折給付比例</span></div>
+              <div class="benefit-row"><span class="benefit-label">骨折關懷</span><span class="benefit-val"><span class="hl">10,000 元</span> × 完全骨折給付比例</span></div>
+              <div class="benefit-row"><span class="benefit-label">重大燒燙傷</span><span class="benefit-val"><span class="hl">125,000 元</span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section sec-life">
+      <div class="section-header">
+        <div class="node"><i class="ti ti-users"></i></div>
+        <span class="phase-tag">壽險（身故理賠）</span>
+        <span class="phase-title">低額主約承接附約，並加入要保人保費豁免</span>
+      </div>
+      <div class="branch-wrap">
+        <div class="branch-card">
+          <div class="product-card">
+            <div class="product-top"><div class="product-name">XWS5 新平準終身壽險（主約）</div><div class="product-badge">終身壽險</div></div>
+            <div class="product-headline">20 年繳，保額 10 萬，作為整體醫療與意外附約的主約基礎。</div>
+            <div class="benefits">
+              <div class="benefit-row"><span class="benefit-label">主約保額</span><span class="benefit-val"><span class="hl">100,000 元</span></span></div>
+              <div class="benefit-row"><span class="benefit-label">老年住院提前</span><span class="benefit-val"><span class="hl">300 元／日</span>（69 歲起）</span></div>
+              <div class="benefit-row"><span class="benefit-label">二至六級失能</span><span class="benefit-val">豁免本契約續期保費</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="branch-card">
+          <div class="product-card">
+            <div class="product-top"><div class="product-name">WPA 親子型保險費豁免附約</div><div class="product-badge">要保人豁免</div></div>
+            <div class="product-headline">若要保人爸爸發生身故或條款所列失能，協助延續寶寶保單。</div>
+            <div class="benefits">
+              <div class="benefit-row"><span class="benefit-label">豁免條件</span><span class="benefit-val">要保人身故或符合條款所列失能程度</span></div>
+              <div class="benefit-row"><span class="benefit-label">豁免期間</span><span class="benefit-val">至主約及本附約繳費期間屆滿</span></div>
+              <div class="benefit-row"><span class="benefit-label">年繳保費</span><span class="benefit-val"><span class="hl">726 元</span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-section">
+    <div class="summary-title"><i class="ti ti-list-check"></i> 簡易保障說明</div>
+    <div class="summary-list">
+      <div class="summary-item"><span class="summary-dot ld-purple"></span><span class="summary-text">領取重大傷病卡</span><span class="summary-amt">最高 50 萬</span></div>
+      <div class="summary-item"><span class="summary-dot ld-pink"></span><span class="summary-text">一般住院定額</span><span class="summary-amt">4,000 / 日</span></div>
+      <div class="summary-item"><span class="summary-dot ld-green"></span><span class="summary-text">意外住院定額</span><span class="summary-amt">6,000 / 日</span></div>
+      <div class="summary-item"><span class="summary-dot ld-purple"></span><span class="summary-text">癌症住院定額</span><span class="summary-amt">5,800 / 日</span></div>
+      <div class="summary-item"><span class="summary-dot ld-pink"></span><span class="summary-text">住院醫療費用實支</span><span class="summary-amt">20 萬 / 次</span></div>
+      <div class="summary-item"><span class="summary-dot ld-green"></span><span class="summary-text">意外醫療實支</span><span class="summary-amt">10 萬額度</span></div>
+      <div class="summary-item"><span class="summary-dot ld-blue"></span><span class="summary-text">要保人身故/失能時</span><span class="summary-amt">豁免續期保費</span></div>
+    </div>
+  </div>
+
+  <div class="print-bar">
+    <button class="print-btn" onclick="window.print()"><i class="ti ti-printer"></i> 列印 / 另存 PDF</button>
+  </div>
+  <div class="footer">
+    <div class="footer-note">本建議書非保險契約，詳細商品內容及變更，以投保當時保單條款內容及富邦人壽核保、保全作業規定為準。ADG、ADH、TMR、ADM 為一年期且不保證續保商品；HSV2、HSY2、SDL 為一年期保證續保商品但非保證費率。未滿 15 足歲者之身故相關給付，須依保險法令與條款限制辦理。</div>
+  </div>
+</div>
+</body>
+</html>
